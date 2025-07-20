@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.mikeapplications.mikebudgetapp.Entities.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUserName(String username);
+    Optional<User> findByUsername(String username);
 }

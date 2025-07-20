@@ -25,7 +25,7 @@ public class BudgetService {
         Set<Budget> currentBudgets = user.getBudgets();
         currentBudgets.add(budget);
         budget.setUser(user);
-        userRepository.save(user);
+        userRepository.save(user); //could be changed to save and flush if errors occur.
         return currentBudgets;
     }
 

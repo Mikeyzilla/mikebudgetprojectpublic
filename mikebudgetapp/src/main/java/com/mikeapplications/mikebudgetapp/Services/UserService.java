@@ -19,7 +19,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void SignUp(User user) {
+     public void SignUp(User user) {
         String username = user.getUsername();
         String password = user.getPassword();
         String saltRounds = BCrypt.gensalt(10);
@@ -30,7 +30,7 @@ public class UserService {
     }
 
     public boolean userExists(String username) {
-        Optional<User> isOptional = userRepository.findByUserName(username);
+        Optional<User> isOptional = userRepository.findByUsername(username);
         return isOptional.isPresent();
     }
 
@@ -38,7 +38,7 @@ public class UserService {
         String username = user.getUsername();
         String password = user.getPassword();
 
-        Optional<User> userOptional = userRepository.findByUserName(username);
+        Optional<User> userOptional = userRepository.findByUsername(username);
         if (userOptional.isPresent()) {
             String hashedPassword = userOptional.get().getPassword();
             return BCrypt.checkpw(password, hashedPassword);

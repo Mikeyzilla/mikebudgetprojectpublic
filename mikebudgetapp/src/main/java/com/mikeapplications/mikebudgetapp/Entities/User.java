@@ -113,4 +113,5 @@ public class User {
     public void setBudgets(Set<Budget> budgets) {
         this.budgets = budgets;
     }
+
 }
