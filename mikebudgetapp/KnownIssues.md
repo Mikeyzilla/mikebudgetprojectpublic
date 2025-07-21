@@ -1,8 +1,6 @@
 Known Issues: 
 
-A) Reintroduce changes made on broken state branch. Then, once it's all merged, delete the broken branch.
-
-B) Implement BudgetService, CategoryService, and CategoryEntryService in Frontend.
+A) Implement BudgetService, CategoryService, and CategoryEntryService in Frontend.
 
 B) Connect Sign Up to backend using UserService (frontend UserService).
 
