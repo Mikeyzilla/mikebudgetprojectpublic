@@ -1,12 +1,21 @@
 <main>
     <div class="NavigationBar">
+        <div class="HomeImage"></div>
         <a routerLink="/" class="link">Back Home</a>
+        <div class="LoginImage"></div>
+        <a routerLink="/loginUser" class="link">Login!</a>
+        <a routerLink="/aboutUs" class="link">About Us</a>
     </div>
-    <h1>Sign up for BudgetBuddy</h1>
-    <form (submit)="onSubmit($event)">
-        <input type="text" placeholder="Username goes here" [(ngModel)]="newUser.username" name="username">
-        <input type="password" placeholder="Password goes here" [(ngModel)]="newUser.password" name="password">
-        <button type="submit"></button>
-    </form> 
+
+    <div class="SignUp-MainContent">
+        <h1>Sign up for BudgetBuddy!</h1>
+        <form (submit)="onSubmit($event)" class="signup-form">
+            <input type="text" placeholder="Username goes here" [(ngModel)]="newUser.username" name="username" class="Registration-Field">
+            <div class="Gap"></div>
+            <input type="password" placeholder="Password goes here" [(ngModel)]="newUser.password" name="password" class="Registration-Field">
+            <div class="Gap"></div>
+            <button type="submit" class="SubmitInfo">Create your Account!</button>
+        </form> 
+    </div>
 
 </main>
