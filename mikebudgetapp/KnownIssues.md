@@ -1,7 +1,17 @@
 Known Issues: 
 
-A) Need Angular Frontend
-    -- budget form and user registration / login page.
-    -- budget form displays budget chart that can be exported to pdf. Chart created using Chart.js
+A) Reintroduce changes made on broken state branch. Then, once it's all merged, delete the broken branch.
 
-B) Connect Angular Frontend to Spring Backend and then test out routes.
+B) Implement BudgetService, CategoryService, and CategoryEntryService in Frontend.
+
+B) Connect Sign Up to backend using UserService (frontend UserService).
+
+C) Then work on Login Page. Connect Login to backend using UserService.
+
+D) Then create About Us.
+
+E) Then create the Budget Form. Use a repeatable budget object inside of the budget form feature. Connect budget form to backend using appropriate services. 
+
+F) Have the budget form display a budget chart that can be exported to pdf. Chart is created using Chart.js.
+
+G) Towards the end of the project, add a readme and separate CSS concerns - Angular supports multi-css files impacting a single HTML file.
