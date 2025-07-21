@@ -3,115 +3,14 @@
 main {
     background-color: silver;
     height: 100%;
-    overflow: hidden;
 }
 
-h1, p {
+h1, p, .HeadsUp, .Description, .Footer, .Jump-Start {
     color: rgb(11, 11, 62);
-    font-family: "Sansation", sans-serif; 
-}
-
-.NavigationBar {
-    background-color: rgb(11, 11, 62);
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    gap: 20px;
-}
-
-.Nav-Left {
-    display: flex;
-    align-items: center;
-    margin-left: 0;
-    padding-left: 10px; 
-}
-
-.Nav-Center {
-    flex-grow: 1;
-    max-width: 600px;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.CompanySlogan {
-    color: silver;
     font-family: "Sansation", sans-serif;
-}
-
-.Nav-Right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-right: 10px;
-}
-
-.Brand-Name {
-    color: silver;
-    font-size: 32px;
-    margin: 0;
-}
-
-.link {
-    color: silver;
-}
-
-.ImageLink {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.SignImage {
-    background-image: url("../../../../public/SignIn.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 75px;
-    width: 75px;
-    position: relative;
-    border-radius: 50%;
-}
-
-.LoginImage {
-    background-image: url("../../../../public/Login.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 75px;
-    width: 75px;
-    position: relative;
-    border-radius: 50%;
-}
-
-.AboutUsImage {
-    background-image: url("../../../../public/favicon.ico");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 75px;
-    width: 75px;
-    position: relative;
-    border-radius: 50%;
-}
-
-.LinkText {
-    position: absolute;
-    color: silver;
-    font-size: 12px;
-    font-family: "Sansation", sans-serif;
-    text-align: center;
-    width: 100%;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
 }
 
 .HeadsUp {
-    color: rgb(11, 11, 62);
-    font-family: "Sansation", sans-serif;
     text-align: center;
     margin: 12px 0;
 }
@@ -136,8 +35,6 @@ h1, p {
 .Description {
     flex: 1; 
     margin-top: -35px;
-    color: rgb(11, 11, 62);
-    font-family: "Sansation", sans-serif;
     text-align: center;
     align-items: center;
 }
@@ -152,7 +49,7 @@ h1, p {
     margin-top: 8px; 
 }
 
-.VisionText p {
+.VisionText p, .Slogan {
     max-width: 500px;       
     margin: 0 auto 12px auto; 
     line-height: 1.5;
@@ -160,9 +57,8 @@ h1, p {
 }
 
 .Slogan {
+    margin-bottom: 20px;
     line-height: 1.6;
-    text-align: center;
-    margin: 0 auto 20px auto;
 }
 
 .SloganList {
@@ -197,15 +93,11 @@ h1, p {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    color: rgb(11, 11, 62);
-    font-family: "Sansation", sans-serif;
     text-align: center;
 }
 
 .Jump-Start {
-    font-family: "Sansation", sans-serif;
     border-radius: 10px;
-    color: rgb(11, 11, 62);
     background-color: silver;
     cursor: pointer;
 }

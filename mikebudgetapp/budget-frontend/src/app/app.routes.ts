@@ -5,6 +5,7 @@ import { Home } from './features/home/home';
 import { Login } from './features/login/login';
 import { Signup } from './features/signup/signup';
 import { ViewBudget } from './features/view-budget/view-budget';
+import { AboutUs } from './features/about-us/about-us';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,10 @@ export const routes: Routes = [
     {
         path: 'makeBudget',
         component: CreateBudget
+    },
+    {
+        path: 'aboutUs',
+        component: AboutUs
     },
     {
         path: 'sendBudget',

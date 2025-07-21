@@ -27,8 +27,8 @@ export class Signup {
   onSubmit (event: Event) {
     event.preventDefault();
     this.userService.signUpUser(this.newUser).subscribe({
-    next: () => console.log('Signup successful'),
-    error: err => console.error('Signup error:', err)
+      next: () => console.log('Signup successful'),
+      error: err => console.error('Signup error:', err)
     });
   }
 }
