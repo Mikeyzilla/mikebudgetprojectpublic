@@ -3,10 +3,10 @@
         <a routerLink="/" class="link">Back Home</a>
     </div>
     <h1>Sign up for BudgetBuddy</h1>
-    <form>
-        <input type="text" placeholder="Username goes here">
-        <input type="password" placeholder="Password goes here">
+    <form (submit)="onSubmit($event)">
+        <input type="text" placeholder="Username goes here" [(ngModel)]="newUser.username" name="username">
+        <input type="password" placeholder="Password goes here" [(ngModel)]="newUser.password" name="password">
         <button type="submit"></button>
-    </form>
+    </form> 
 
 </main>

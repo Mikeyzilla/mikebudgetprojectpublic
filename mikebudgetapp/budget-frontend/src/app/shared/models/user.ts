@@ -1,7 +1,7 @@
 import { Budget } from "./budget";
 
 export interface User {
-  id: number;
+  id?: number;
   budgets: Budget[];
   username: string;
   password?: string;
