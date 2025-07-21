@@ -1,0 +1,18 @@
+h1, p {
+    color: rgb(11, 11, 62);
+    font-family: "Sansation", sans-serif; 
+}
+
+.NavigationBar {
+    background-color: rgb(11, 11, 62);
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 32px;
+}
+
+.link {
+    color: silver;
+}
