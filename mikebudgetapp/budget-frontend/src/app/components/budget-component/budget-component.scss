@@ -1,0 +1,66 @@
+.BudgetOnPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2%;
+  height: 100vh;     
+  overflow-y: auto;  
+}
+
+.BudgetComponent {
+    background-color: white;
+    width: 80%;
+    color: rgb(11, 11, 62);
+    font-family: "Sansation", sans-serif; 
+    margin-bottom: 20px;
+}
+
+.BudgetTitleArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CategoryHeaderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+}
+
+.EmptyAlignmentBox {
+  min-width: 80px;
+}
+
+.CategoryHeader {
+  flex: 1;
+  text-align: center;
+}
+
+.WeekRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.WeekTitle {
+  min-width: 80px;
+}
+
+.CategoryInput {
+  flex: 1;
+}
+
+.BudgetManipulation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 100px;
+    margin-left: 90%;
+}
+
+.AddBudgetButton, .RemoveBudgetButton {
+    cursor: pointer;
+}

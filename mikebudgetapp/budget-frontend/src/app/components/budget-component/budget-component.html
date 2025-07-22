@@ -1,0 +1,28 @@
+  <main class="BudgetOnPage">
+  <div class="BudgetComponent" *ngFor="let month of budgetSections">
+    <div class="BudgetTitleArea">
+      <h1 class="MonthTitle">{{ month }}</h1>
+    </div>
+    <div class="BudgetArea">
+      <div class="CategoryGridContainer">
+        <div class="CategoryHeaderRow">
+          <div class="EmptyAlignmentBox"></div>
+          <div class="CategoryHeader" *ngFor="let category of categories">
+            <h5>{{ category }}</h5>
+          </div>
+        </div>
+
+        <div class="WeekRow" *ngFor="let week of weeksInAnyMonth(month)">
+          <h5 class="WeekTitle">{{ week }}</h5>
+          <div class="CategoryInput" *ngFor="let category of categories">
+            <input class="SpecificEntry" placeholder="Amount for {{category}} - {{week}}">
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="BudgetManipulation">
+    <div class="AddBudgetButton" (click)="addBudgetSection()">+</div>
+    <div class="RemoveBudgetButton" (click)="removeBudgetSection()">-</div>
+  </div>
+  </div>
+  </main>

@@ -1,0 +1,33 @@
+.TitleFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.AboutFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.AboutTitle, .NewBeginningsText {
+    color: rgb(11, 11, 62);
+    font-family: "Sansation", sans-serif; 
+}
+
+.NewBeginningsText {
+    max-width: 685px;
+    margin-left: 3%;
+    margin-top: 3%;
+    font-size: 28px;
+}
+
+.NewBeginningsImage {
+    background-image: url("../../../../public/MascotTransparent.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    margin-top: 2%;
+    margin-left: 15%;
+}
