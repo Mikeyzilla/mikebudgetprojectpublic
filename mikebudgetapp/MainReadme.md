@@ -28,6 +28,8 @@ Or temporarily use a bypass config (not recommended for prod)
 
 You will need to set up an Oracle DB instance locally. (Oracle DB is required but not included in this repo.)
 
+You will also need to include an application.properties - I deleted mine from the repo for security reasons.
+
 🧩 Future Enhancements
 Planned features (see KnownIssues.md):
 
