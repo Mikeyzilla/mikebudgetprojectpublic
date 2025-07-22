@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../core/services/userservice';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './signup.html',
   styleUrls: ['./signup.scss']
 })
@@ -17,12 +18,29 @@ export class Signup {
   newUser = { 
     username: '',
     password: '',
-    location: '',
+    location: 'Unknown',
     dependents: 0,
-    occupation: '',
+    occupation: 'Unemployed',
     income: 0,
     budgets: []
   };
+
+  get isUsernameLengthValid(): boolean {
+    return this.newUser.username.length >= 8;
+  }
+
+  get passwordHasMinLength(): boolean {
+    return this.newUser.password.length >= 8;
+  }
+
+  get passwordHasUppercase(): boolean {
+    return /[A-Z]/.test(this.newUser.password);
+  }
+
+  get passwordHasSpecialChar(): boolean {
+    return /[^a-zA-Z0-9]/.test(this.newUser.password);
+  }
+
 
   onSubmit (event: Event) {
     event.preventDefault();

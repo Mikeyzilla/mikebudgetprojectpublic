@@ -45,4 +45,5 @@ build/
 
 
 mikebudgetapp/src/main/resources/Oracle_JDK-24/
+**/SecurityConfig.java
 **/Oracle_JDK*/

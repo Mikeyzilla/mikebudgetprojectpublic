@@ -28,7 +28,7 @@ public class CategoryEntryService {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new RuntimeException("no such category found with that id"));
         CategoryEntry categoryEntry = new CategoryEntry();
         categoryEntry.setAmount(amount);
-        categoryEntry.setDate(date);
+        categoryEntry.setEntryDate(date);
         categoryEntry.setCategory(category);
         category.getEntries().add(categoryEntry);
         return categoryRepository.save(category);
@@ -36,7 +36,7 @@ public class CategoryEntryService {
 
     public List<CategoryEntry> getEntriesForCategoryInPeriod(Long categoryId, LocalDate start, LocalDate end) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new RuntimeException("no such category found with that id"));
-        List<CategoryEntry> betweenDateEntryList = category.getEntries().stream().filter(entry -> !entry.getDate().isBefore(start) && !entry.getDate().isAfter(end)).collect(Collectors.toList());
+        List<CategoryEntry> betweenDateEntryList = category.getEntries().stream().filter(entry -> !entry.getEntryDate().isBefore(start) && !entry.getEntryDate().isAfter(end)).collect(Collectors.toList());
         return betweenDateEntryList;
     }
 

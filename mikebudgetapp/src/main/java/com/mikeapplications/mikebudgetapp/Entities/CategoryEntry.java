@@ -3,6 +3,7 @@ package com.mikeapplications.mikebudgetapp.Entities;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +20,8 @@ public class CategoryEntry {
 
     private BigDecimal amount;
 
-    private LocalDate date;  // the date of this expense entry
+    @Column(name = "entry_date")
+    private LocalDate entryDate;  
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -27,9 +29,9 @@ public class CategoryEntry {
 
     public CategoryEntry() {}
 
-    public CategoryEntry(BigDecimal amount, LocalDate date, Category category) {
+    public CategoryEntry(BigDecimal amount, LocalDate entryDate, Category category) {
         this.amount = amount;
-        this.date = date;
+        this.entryDate = entryDate;
         this.category = category;
     }
 
@@ -45,12 +47,12 @@ public class CategoryEntry {
         this.amount = amount;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getEntryDate() {
+        return entryDate;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setEntryDate(LocalDate entryDate) {
+        this.entryDate = entryDate;
     }
 
     public Category getCategory() {

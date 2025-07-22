@@ -17,22 +17,22 @@ h1, p {
     color: silver;
 }
 
+.Title {
+    grid-column: 2;
+}
+
 .SignUp-MainContent {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
 }
 
 .signup-form {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-}
-
-.Gap {
-    width: 1px;
-    height: 40px; 
+     grid-column: 2;
 }
 
 .Registration-Field {
@@ -43,12 +43,48 @@ h1, p {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.Gap {
+    width: 1px;
+    height: 40px;
+}
+
+.usernameRequirements, .passwordRequirements, .validation {
+    color: rgb(11, 11, 62);
+    font-family: "Sansation", sans-serif; 
+}
+
+.usernameRequirements, .passwordRequirements {
+    margin-top: -5px;
+}
+
+.validation {
+    margin-left: 50px;
 }
 
 .SubmitInfo {
     width: 100%;
     padding: 12px;
+    margin-top: 8%;
     font-size: 20px; 
     border-radius: 10px;
     cursor: pointer;
+}
+
+.ProfessionalOne {
+    grid-column: 1;
+}
+
+.ProfessionalThree {
+    grid-column: 3;
+}
+
+.ProfessionalOne, .ProfessionalTwo {
+    background-image: url("../../../../public/TransparentRibbon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
 }

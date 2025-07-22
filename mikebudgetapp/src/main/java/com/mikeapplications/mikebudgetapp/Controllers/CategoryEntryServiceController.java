@@ -27,7 +27,7 @@ public class CategoryEntryServiceController {
 
     @PostMapping("/categories/{categoryId}/entries")
     public ResponseEntity<Void> addEntry( @PathVariable long categoryId, @RequestBody CategoryEntry categoryEntry) {
-        categoryEntryService.addEntryToCategory(categoryId, categoryEntry.getAmount(), categoryEntry.getDate());
+        categoryEntryService.addEntryToCategory(categoryId, categoryEntry.getAmount(), categoryEntry.getEntryDate());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

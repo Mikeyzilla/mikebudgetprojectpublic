@@ -10,6 +10,6 @@ import com.mikeapplications.mikebudgetapp.Entities.CategoryEntry;
 
 public interface CategoryEntryRepository extends JpaRepository<CategoryEntry, Long> {
 
-    List<CategoryEntry> findByCategoryAndDateBetween(Category category, LocalDateTime start, LocalDateTime end);
+    List<CategoryEntry> findByCategoryAndEntryDateBetween(Category category, LocalDateTime start, LocalDateTime end);
 
 }

@@ -1,13 +1,22 @@
 <main>
     <div class="SignUp-MainContent">
-        <h1>Sign up for BudgetBuddy!</h1>
+        <h1 class="Title">Sign up for BudgetBuddy!</h1>
+        <div class="ProfessionalOne"></div>
         <form (submit)="onSubmit($event)" class="signup-form">
             <input type="text" placeholder="Username goes here" [(ngModel)]="newUser.username" name="username" class="Registration-Field">
+            <ol *ngIf="!isUsernameLengthValid" class="usernameRequirements">Your username must be: 
+                <li *ngIf="!isUsernameLengthValid" class="validation">8 characters long</li>
+            </ol>
             <div class="Gap"></div>
             <input type="password" placeholder="Password goes here" [(ngModel)]="newUser.password" name="password" class="Registration-Field">
+              <ol *ngIf="!passwordHasMinLength || !passwordHasSpecialChar || !passwordHasUppercase" class="passwordRequirements">Your password must be: 
+                <li *ngIf="!passwordHasMinLength" class="validation">8 characters long</li>
+                <li *ngIf="!passwordHasSpecialChar" class="validation">Contain at least one special character</li>
+                <li *ngIf="!passwordHasUppercase" class="validation">Contain at least one uppercase character</li>
+            </ol>
             <div class="Gap"></div>
-            <button type="submit" class="SubmitInfo">Create your Account!</button>
+            <button type="submit" class="SubmitInfo" [disabled]="!isUsernameLengthValid || !passwordHasMinLength || !passwordHasSpecialChar || !passwordHasUppercase">Create your Account!</button>
         </form> 
+        <div class="ProfessionalTwo"></div>  
     </div>
-
 </main>
