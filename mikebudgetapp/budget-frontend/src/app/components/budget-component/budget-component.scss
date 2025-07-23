@@ -4,8 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-top: 2%;
-  height: 100vh;     
-  overflow-y: auto;  
+  width: 100%;
 }
 
 .BudgetComponent {
@@ -51,6 +50,10 @@
 
 .CategoryInput {
   flex: 1;
+}
+
+.SpecificEntry {
+  text-align: center;
 }
 
 .BudgetManipulation {

@@ -15,6 +15,10 @@
     margin-top: -5px;
 }
 
+.Warning {
+    margin-top: -5px;
+}
+
 .PrerequisiteForm {
     display: flex;
     flex-direction: row;
@@ -38,4 +42,18 @@
 .Gap {
     width: 1px;
     height: 20px;
+}
+
+.ButtonArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SubmitBudgetButton {
+    padding: 12px;
+    font-size: 20px; 
+    cursor: pointer;
+    border-radius: 10px;
 }

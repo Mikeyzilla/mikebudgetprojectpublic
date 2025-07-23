@@ -1,14 +1,16 @@
 <main class="PrerequisiteInformationArea">
     <h1 class="ImportantTitle">Create your Budget Below!</h1>
-    <p class="ImportantDescriptor">In order to get started with BudgetBuddy, enter in some prerequisite information (along with your budget data) to help us, help you!</p>
-
-  <form class="PrerequisiteForm">
+    <p class="ImportantDescriptor" *ngIf="!isFormComplete">In order to get started with BudgetBuddy, enter in some prerequisite information (along with your budget data) to help us, help you!</p>
+    <h5 class="Warning" *ngIf="!isFormComplete">Please note that once you type in this information, you can't go back unless you make a new budget!</h5>
+  <form class="PrerequisiteForm" *ngIf="!isFormComplete">
     <input type="text" name="occupation" class="PrereqField" placeholder="What is your occupation?" [(ngModel)]="introFormField.occupation" (ngModelChange)="verifyIntroComplete()">
     <input type="text" name="income" class="PrereqField" placeholder="What is your income?" [(ngModel)]="introFormField.income" (ngModelChange)="verifyIntroComplete()">
     <input type="text" name="location" class="PrereqField" placeholder="What state do you live in?" [(ngModel)]="introFormField.location" (ngModelChange)="verifyIntroComplete()">
-    <input type="text" name="dependents" class="PrereqField" placeholder="Number of dependents?" [(ngModel)]="introFormField.dependents" (ngModelChange)="verifyIntroComplete()">
+    <input type="number" name="dependents" class="PrereqField" placeholder="Number of dependents?" [(ngModel)]="introFormField.dependents" (ngModelChange)="verifyIntroComplete()">
   </form>
 </main>
 
 <app-budget-component *ngIf="isFormComplete"></app-budget-component>
-<button>Submit Budget</button>
+<div class="ButtonArea">
+  <button *ngIf="isFormComplete" class="SubmitBudgetButton">Submit Budget</button>
+</div>

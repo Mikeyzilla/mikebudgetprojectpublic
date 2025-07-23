@@ -18,12 +18,42 @@ import { FormsModule } from '@angular/forms';
     location: ''
   }
 
+  changeIncomeTextToValidInput(text: string): number {
+    let newIncome = 0;
+
+    if (/[A-Za-z]/.test(text)) return 0;
+    
+    let validIncomeText = text.replace(/^\$/, '').replace(/\$$/, '').trim();
+    newIncome = parseFloat(validIncomeText.replace(/,/g, ''));
+
+    return newIncome;
+  }
+
+  returnNumericalDependents(text: string): number {
+    return parseInt(text);
+  } 
+
+  verifyOccupationAndLocationAreValid(text: string): boolean {
+    let newText = text.trim();
+    if (/[0-9!@#$%^&*()-_+={}?:~]/.test(newText)) return false;
+    if (newText.length < 3) return false;
+    return true;
+  }
+
+
   verifyIntroComplete(): boolean {
-    if (this.introFormField.dependents == '' || this.introFormField.occupation == '' || this.introFormField.income == '' || this.introFormField.location == '') {
-      this.isFormComplete = false;
-    } else {
-      this.isFormComplete = true;
-    }
+    const income = this.changeIncomeTextToValidInput(this.introFormField.income);
+    const isIncomeValid = !isNaN(income);
+
+    const dependentsNumber = this.returnNumericalDependents(this.introFormField.dependents);
+    const isDependentsValid = !isNaN(dependentsNumber);
+
+    const locationValid = this.verifyOccupationAndLocationAreValid(this.introFormField.location);
+    const occupationValid = this.verifyOccupationAndLocationAreValid(this.introFormField.occupation);
+
+    this.isFormComplete = isIncomeValid && isDependentsValid && locationValid && occupationValid;
+
     return this.isFormComplete;
   }
+
 }
