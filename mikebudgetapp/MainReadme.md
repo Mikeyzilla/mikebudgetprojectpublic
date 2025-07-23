@@ -35,8 +35,6 @@ Planned features (see KnownIssues.md):
 
 User input for: location, dependents, income, and occupation
 
-Frontend login and authentication
-
 Budget-to-PDF export
 
 Fully functional budget submission system

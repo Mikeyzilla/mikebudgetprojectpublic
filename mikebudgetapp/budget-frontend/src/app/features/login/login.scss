@@ -1,0 +1,45 @@
+.LoginElements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(11, 11, 62);
+    font-family: "Sansation", sans-serif;
+}
+
+.LoginDescriptor {
+    margin-top: -10px;
+}
+
+.LoginArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.Login-Field {
+    width: 100%;
+    padding: 12px; 
+    font-size: 18px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.Gap {
+    height: 1px;
+    width: 15px;
+}
+
+.VerifyInfo {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8%;
+    font-size: 20px; 
+    border-radius: 10px;
+    cursor: pointer;
+}

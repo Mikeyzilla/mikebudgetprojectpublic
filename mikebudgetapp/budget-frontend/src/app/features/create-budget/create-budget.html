@@ -1,2 +1,14 @@
-<app-budget-component></app-budget-component>
+<main class="PrerequisiteInformationArea">
+    <h1 class="ImportantTitle">Create your Budget Below!</h1>
+    <p class="ImportantDescriptor">In order to get started with BudgetBuddy, enter in some prerequisite information (along with your budget data) to help us, help you!</p>
+
+  <form class="PrerequisiteForm">
+    <input type="text" name="occupation" class="PrereqField" placeholder="What is your occupation?" [(ngModel)]="introFormField.occupation" (ngModelChange)="verifyIntroComplete()">
+    <input type="text" name="income" class="PrereqField" placeholder="What is your income?" [(ngModel)]="introFormField.income" (ngModelChange)="verifyIntroComplete()">
+    <input type="text" name="location" class="PrereqField" placeholder="What state do you live in?" [(ngModel)]="introFormField.location" (ngModelChange)="verifyIntroComplete()">
+    <input type="text" name="dependents" class="PrereqField" placeholder="Number of dependents?" [(ngModel)]="introFormField.dependents" (ngModelChange)="verifyIntroComplete()">
+  </form>
+</main>
+
+<app-budget-component *ngIf="isFormComplete"></app-budget-component>
 <button>Submit Budget</button>
