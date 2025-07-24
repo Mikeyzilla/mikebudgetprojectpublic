@@ -18,10 +18,12 @@ export class Login {
     password: ''
   }
 
+  loggedInUserId = 0;
+
   onSubmit(event: Event) {
     event.preventDefault();
     this.userService.logInAUser(this.userToLogin).subscribe({
-      next: () => console.log("Success! Logged in"),
+      next: (userId) => {this.loggedInUserId = userId},
       error: (err) => console.error("Something went wrong with Login: ", err)
     });
   }

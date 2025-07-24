@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BudgetComponent } from '../../components/budget-component/budget-component';
 import { FormsModule } from '@angular/forms';
+import { UserSessionService } from '../../core/services/user-session-service';
 
 @Component({
   selector: 'app-create-budget',
@@ -10,6 +11,10 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './create-budget.html',
   styleUrl: './create-budget.scss'
 }) export class CreateBudget {
+  constructor(private userSessionService: UserSessionService) {}
+
+  @ViewChild(BudgetComponent) budgetComponent!: BudgetComponent;
+
   isFormComplete: boolean = false;
   introFormField = {
     income: '',
@@ -29,13 +34,17 @@ import { FormsModule } from '@angular/forms';
     return newIncome;
   }
 
+  get incomeNumber(): number {
+    return this.changeIncomeTextToValidInput(this.introFormField.income);
+  }
+
   returnNumericalDependents(text: string): number {
     return parseInt(text);
   } 
 
   verifyOccupationAndLocationAreValid(text: string): boolean {
     let newText = text.trim();
-    if (/[0-9!@#$%^&*()-_+={}?:~]/.test(newText)) return false;
+    if (/[^a-zA-Z\s]/.test(newText)) return false;
     if (newText.length < 3) return false;
     return true;
   }
@@ -52,8 +61,11 @@ import { FormsModule } from '@angular/forms';
     const occupationValid = this.verifyOccupationAndLocationAreValid(this.introFormField.occupation);
 
     this.isFormComplete = isIncomeValid && isDependentsValid && locationValid && occupationValid;
-
     return this.isFormComplete;
+  }
+
+  submitOurBudget() {
+    this.budgetComponent.submitBudget(this.userSessionService.getOurUserId());
   }
 
 }

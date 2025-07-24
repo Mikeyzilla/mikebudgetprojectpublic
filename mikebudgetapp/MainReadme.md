@@ -33,8 +33,6 @@ You will also need to include an application.properties - I deleted mine from th
 🧩 Future Enhancements
 Planned features (see KnownIssues.md):
 
-User input for: location, dependents, income, and occupation
-
 Budget-to-PDF export
 
 Fully functional budget submission system

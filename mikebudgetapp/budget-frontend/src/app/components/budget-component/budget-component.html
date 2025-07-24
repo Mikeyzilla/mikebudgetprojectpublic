@@ -15,7 +15,7 @@
         <div class="WeekRow" *ngFor="let week of weeksInAnyMonth(month)">
           <h5 class="WeekTitle">{{ week }}</h5>
           <div class="CategoryInput" *ngFor="let category of categories">
-            <input class="SpecificEntry" placeholder="Amount for {{category}} - {{week}}">
+            <input class="SpecificEntry" [(ngModel)]="amounts[month][week][category]" placeholder="Amount for {{category}} - {{week}}">
           </div>
         </div>
       </div>

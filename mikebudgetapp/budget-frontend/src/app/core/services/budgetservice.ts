@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Budgetservice {
   constructor(private http: HttpClient) {}
+  
 
   createUserBudget(userId: number, budget: Budget): Observable<void> {
     return this.http.post<void>(`http://localhost:9000/users/${userId}/budgets`, budget);

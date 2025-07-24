@@ -28,12 +28,12 @@ public class UserServiceController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody User user) {
+    public ResponseEntity<Long> login(@RequestBody User user) {
         boolean loginSuccess = userService.Login(user);
         if (!loginSuccess) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(user.getId());
     }
 
     @GetMapping("/getUserById") 
