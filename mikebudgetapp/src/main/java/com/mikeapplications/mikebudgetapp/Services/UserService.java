@@ -29,15 +29,17 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public Optional<User> findByUsername(String username) {
+        Optional<User> user = userRepository.findByUsername(username);        
+        return user;
+    }
+
     public boolean userExists(String username) {
         Optional<User> isOptional = userRepository.findByUsername(username);
         return isOptional.isPresent();
     }
 
-    public boolean Login(User user) {
-        String username = user.getUsername();
-        String password = user.getPassword();
-
+    public boolean Login(String username, String password) {
         Optional<User> userOptional = userRepository.findByUsername(username);
         if (userOptional.isPresent()) {
             String hashedPassword = userOptional.get().getPassword();
@@ -45,7 +47,7 @@ public class UserService {
         }
         return false;
     }
-
+    
     public User findUserById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException());
     }

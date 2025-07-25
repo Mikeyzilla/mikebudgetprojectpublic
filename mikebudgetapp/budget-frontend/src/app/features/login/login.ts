@@ -13,17 +13,19 @@ import { FormsModule } from '@angular/forms';
 export class Login {
   constructor(private userService: UserService) {}
 
-  userToLogin = {
+  loggedInUserId = 0;
+
+  userToLogin: LoginRequest = {
     username: '',
     password: ''
-  }
-
-  loggedInUserId = 0;
+  };
 
   onSubmit(event: Event) {
     event.preventDefault();
     this.userService.logInAUser(this.userToLogin).subscribe({
-      next: (userId) => {this.loggedInUserId = userId},
+      next: (userId) => {
+        this.loggedInUserId = userId;
+      },
       error: (err) => console.error("Something went wrong with Login: ", err)
     });
   }

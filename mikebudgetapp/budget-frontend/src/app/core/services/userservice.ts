@@ -14,8 +14,8 @@ export class UserService {
     return this.http.post<void>('http://localhost:9000/users', user);
   }
 
-  logInAUser(user: Partial<User>): Observable<number> {
-    return this.http.post<number>('http://localhost:9000/login', user);
+  logInAUser(loginRequest: LoginRequest): Observable<number> {
+    return this.http.post<number>('http://localhost:9000/login', loginRequest);
   }
 
   getAUserById(userId: number): Observable<User> {

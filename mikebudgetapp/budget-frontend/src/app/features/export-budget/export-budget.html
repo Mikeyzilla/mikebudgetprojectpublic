@@ -9,7 +9,7 @@
       <div class="PieArea">
             <div class="IndividualPie">
                   <h2>Ideal Spending</h2>
-                  <canvas *ngIf="isBrowser" baseChart 
+                  <canvas baseChart 
                         class="IdealPie"
                         [data]="idealChartData"
                         [type]="'pie'">
@@ -18,7 +18,7 @@
             <div class="Gap"></div>
             <div class="IndividualPie">
                   <h2>Actual Spending</h2>
-                  <canvas *ngIf="isBrowser" baseChart 
+                  <canvas baseChart 
                         class="ActualPie"
                         [data]="actualChartData"
                         [type]="'pie'">
