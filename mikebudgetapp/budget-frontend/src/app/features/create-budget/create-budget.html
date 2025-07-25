@@ -12,5 +12,6 @@
 
 <app-budget-component *ngIf="isFormComplete" [MainIncome]="incomeNumber"></app-budget-component>
 <div class="ButtonArea">
-  <button *ngIf="isFormComplete" (click)="SubmitOurBudget()" class="SubmitBudgetButton">Submit Budget</button>
+  <button *ngIf="isFormComplete && isLoggedIn()" (click)="submitOurBudget()" class="SubmitBudgetButton">Submit Budget</button>
+  <a href="sendBudget">Export</a>
 </div>

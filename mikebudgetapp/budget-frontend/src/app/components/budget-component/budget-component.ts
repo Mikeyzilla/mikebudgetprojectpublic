@@ -23,7 +23,7 @@ export class BudgetComponent {
   amounts: {
     [month: string]: {
       [week: string]: {
-        [category: string]: string;
+        [category: string]: string | number;
       };
     };
   } = {};
@@ -133,6 +133,12 @@ export class BudgetComponent {
   }
 
   submitBudget(aUserId: number): void {
+    if (this.checkIfAtLeastOneEntryMade() == false) {
+      return console.log("You must provide at least one entry");
+    }
+    if (this.validateAllEntryData() == false) {
+      return console.log("All entries must be numerical (i.e 5000 or $5000) to be considered valid. Please change them");
+    }
     const budget = {
       userId: aUserId,
       totalIncome: this.MainIncome,
@@ -149,15 +155,24 @@ export class BudgetComponent {
     } as unknown as Budget;
 
     this.budgetService.createUserBudget(aUserId, budget).subscribe({
-      next: () => console.log('Budget created successfully!'),
-      error: err => console.error('Budget creation failed: ', err)
+      next: (budget) => {
+        const locationUrl = budget.headers.get('Location');
+        if (locationUrl != null) {
+            const locationArray = locationUrl.split('/');
+            const budgetIdString = locationArray[locationArray.length - 1];
+            const budgetIdNumber = parseInt(budgetIdString);
+            //save the budgetIdNumber using the budget service session.
+        }
+      }, error: err => console.error('Budget creation failed: ', err)
     });
   }
   
     
   getAmountFor(categoryName: string, month: string, week: string): string {
-    return this.amounts[month]?.[week]?.[categoryName] ?? '';
+    const val = this.amounts[month]?.[week]?.[categoryName];
+    return val != null ? val.toString() : '';
   }
+
 
   getDateFor(month: string, week: string): string {
     const dateOfEntry = new Date();
@@ -176,5 +191,39 @@ export class BudgetComponent {
     dateOfEntry.setDate(day);
     return dateOfEntry.toISOString();
   }
+
+  checkIfAtLeastOneEntryMade() {
+    let isThereAnEntry = false;
+    for (const month of Object.keys(this.amounts)) {
+      for (const week of this.weeksInAnyMonth(month)) {
+        for (const category of this.categories) {
+          if (this.amounts[month][week][category] != '') {
+            isThereAnEntry = true;
+          }
+        }
+      }
+    }
+    return isThereAnEntry;
+  }
+
+  validateAllEntryData(): boolean {
+    for (const month of Object.keys(this.amounts)) {
+      for (const week of this.weeksInAnyMonth(month)) {
+        for (const category of this.categories) {
+          const entryToValidate = this.amounts[month][week][category];
+          if (typeof entryToValidate === 'string' && /[A-Za-z]/.test(entryToValidate)) {
+            return false;
+          } else {
+            const newEntry = parseFloat(entryToValidate.toString().replace(/[$, ]/g, ''));
+            if (isNaN(newEntry)) {
+              return false;
+            }
+            this.amounts[month][week][category] = newEntry;
+          }
+        }
+      }
+    }
+    return true;
+  } 
 
 }

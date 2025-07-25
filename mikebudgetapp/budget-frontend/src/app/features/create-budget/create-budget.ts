@@ -3,6 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { BudgetComponent } from '../../components/budget-component/budget-component';
 import { FormsModule } from '@angular/forms';
 import { UserSessionService } from '../../core/services/user-session-service';
+import { UserService } from '../../core/services/userservice';
 
 @Component({
   selector: 'app-create-budget',
@@ -66,6 +67,10 @@ import { UserSessionService } from '../../core/services/user-session-service';
 
   submitOurBudget() {
     this.budgetComponent.submitBudget(this.userSessionService.getOurUserId());
+  }
+
+  isLoggedIn(): boolean {
+    return this.userSessionService.getOurUserId() !== 0 && this.userSessionService.getOurUserId() != null;
   }
 
 }
