@@ -6,12 +6,12 @@
     <span class="CompanySlogan">Your Money-Making Future Starts Today!</span>
   </div>
   <div class="Nav-Right">
-    <a *ngIf="currentRoute !== '/signUpUser'" routerLink="/signUpUser" class="ImageLink">
+    <a *ngIf="currentRoute !== '/signUpUser' && checkIfLoggedIn() == false" routerLink="/signUpUser" class="ImageLink">
       <div class="SignImage">
         <span class="LinkText">Sign Up</span>
       </div>
     </a>
-    <a *ngIf="currentRoute !== '/loginUser'" routerLink="/loginUser" class="ImageLink">
+    <a *ngIf="currentRoute !== '/loginUser' && checkIfLoggedIn() == false" routerLink="/loginUser" class="ImageLink">
       <div class="LoginImage">
         <span class="LinkText">Login</span>
       </div>
