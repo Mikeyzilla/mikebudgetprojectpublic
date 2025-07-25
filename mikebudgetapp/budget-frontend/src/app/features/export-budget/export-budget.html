@@ -1,10 +1,21 @@
 <main class="ExportContentArea">
-   <h1 class="userTitle">{{ username || 'Guest Data' }}</h1> 
-   <div>
-        <h3>Food</h3>
-        <label>Your Spending Total: </label>
-        <label>Ideal Spending Total: </label>
-        <label>Percent Off From Ideal: </label>
-   </div>
-   
+      <h1 class="userTitle">{{ username || 'Guest Data' }}</h1> 
+      <div *ngFor="let summary of categorySummaries">
+            <h3>{{ summary.name }}</h3>
+            <label>Your Spending Total: {{ summary.actual}}</label><br>
+            <label>Ideal Spending Total: {{ summary.ideal}}</label><br>
+            <label>Percent Off From Ideal: {{ summary.percentDiff }}</label>
+      </div>
+      <h2>Ideal Spending</h2>
+      <canvas *ngIf="isBrowser" baseChart 
+            [data]="idealChartData"
+            [type]="'pie'">
+      </canvas>
+
+      <h2>Actual Spending</h2>
+      <canvas *ngIf="isBrowser" baseChart 
+            [data]="actualChartData"
+            [type]="'pie'">
+      </canvas>
+
 </main>

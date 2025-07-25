@@ -3,10 +3,10 @@
     <p class="ImportantDescriptor" *ngIf="!isFormComplete">In order to get started with BudgetBuddy, enter in some prerequisite information (along with your budget data) to help us, help you!</p>
     <h5 class="Warning" *ngIf="!isFormComplete">Please note that once you type in this information, you can't go back unless you make a new budget!</h5>
   <form class="PrerequisiteForm" *ngIf="!isFormComplete">
-    <input type="text" name="occupation" class="PrereqField" placeholder="What is your occupation?" [(ngModel)]="introFormField.occupation" (ngModelChange)="verifyIntroComplete()">
-    <input type="text" name="income" class="PrereqField" placeholder="What is your income?" [(ngModel)]="introFormField.income" (ngModelChange)="verifyIntroComplete()">
-    <input type="text" name="location" class="PrereqField" placeholder="What state do you live in?" [(ngModel)]="introFormField.location" (ngModelChange)="verifyIntroComplete()">
-    <input type="number" name="dependents" class="PrereqField" placeholder="Number of dependents?" [(ngModel)]="introFormField.dependents" (ngModelChange)="verifyIntroComplete()">
+    <input type="text" name="occupation" class="Field" placeholder="What is your occupation?" [(ngModel)]="introFormField.occupation" (ngModelChange)="verifyIntroComplete()">
+    <input type="text" name="income" class="Field" placeholder="What is your income?" [(ngModel)]="introFormField.income" (ngModelChange)="verifyIntroComplete()">
+    <input type="text" name="location" class="Field" placeholder="What state do you live in?" [(ngModel)]="introFormField.location" (ngModelChange)="verifyIntroComplete()">
+    <input type="number" name="dependents" class="Field" placeholder="Number of dependents?" [(ngModel)]="introFormField.dependents" (ngModelChange)="verifyIntroComplete()">
   </form>
 </main>
 

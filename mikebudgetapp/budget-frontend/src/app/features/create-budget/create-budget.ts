@@ -10,7 +10,7 @@ import { UserService } from '../../core/services/userservice';
   standalone: true,
   imports: [CommonModule, BudgetComponent, FormsModule],
   templateUrl: './create-budget.html',
-  styleUrl: './create-budget.scss'
+  styleUrls: ['./create-budget.scss', '../../sharedStyles/Fields.scss']
 }) export class CreateBudget {
   constructor(private userSessionService: UserSessionService) {}
 

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './signup.html',
-  styleUrls: ['./signup.scss']
+  styleUrls: ['./signup.scss', '../../sharedStyles/Fields.scss']
 })
 
 export class Signup {

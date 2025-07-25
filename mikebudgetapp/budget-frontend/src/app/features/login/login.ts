@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.html',
-  styleUrl: './login.scss'
+  styleUrls: ['./login.scss', '../../sharedStyles/Fields.scss']
 })
 export class Login {
   constructor(private userService: UserService) {}
