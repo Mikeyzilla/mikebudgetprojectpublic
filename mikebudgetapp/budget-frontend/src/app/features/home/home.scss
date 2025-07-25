@@ -5,6 +5,10 @@ main {
     height: 100%;
 }
 
+.HideOverflow {
+    overflow: hidden;
+}
+
 h1, p, .HeadsUp, .Description, .Footer, .Jump-Start {
     color: rgb(11, 11, 62);
     font-family: "Sansation", sans-serif;

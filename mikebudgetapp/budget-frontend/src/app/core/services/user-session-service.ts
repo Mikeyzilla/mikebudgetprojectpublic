@@ -8,15 +8,17 @@ export class UserSessionService {
   private ourUserId!: number;
 
   setOurUserId(ourUserId: number): void {
-    this.ourUserId = ourUserId;
+    localStorage.setItem('userId', ourUserId.toString());
   }
 
   getOurUserId(): number {
-    return this.ourUserId;
+    if (typeof localStorage !== 'undefined') {
+      return Number(localStorage.getItem('userId')) || 0;
+    }
+    return 0;
   }
 
-  wipeUserId(ourUserId: number): void {
-    this.ourUserId = 0;
+  wipeUserId(): void {
+    localStorage.removeItem('userId');
   }
-
 }

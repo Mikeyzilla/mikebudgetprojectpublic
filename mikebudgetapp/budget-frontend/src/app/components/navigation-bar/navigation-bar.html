@@ -3,7 +3,7 @@
     <h1 class="Brand-Name">BudgetBuddy</h1>
   </div>
   <div class="Nav-Center">
-    <span class="CompanySlogan">Your Money-Making Future Starts Today!</span>
+    <span class="CompanySlogan"  [ngStyle]="changeSloganStyle()">Your Money-Making Future Starts Today!</span>
   </div>
   <div class="Nav-Right">
     <a *ngIf="currentRoute !== '/signUpUser' && checkIfLoggedIn() == false" routerLink="/signUpUser" class="ImageLink">
@@ -24,6 +24,11 @@
     <a *ngIf="currentRoute !== '/home'" routerLink="/" class="ImageLink">
       <div class="BackHomeImage">
         <span class="LinkText">Home</span>
+      </div>
+    </a>
+    <a *ngIf="checkIfLoggedIn() == true" (click)="logOutUser()" routerLink="/" class="ImageLink">
+      <div class="LogOutImage">
+        <span class="LinkText">Logout</span>
       </div>
     </a>
   </div>

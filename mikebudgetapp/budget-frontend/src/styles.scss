@@ -6,6 +6,10 @@ html, body {
   font-family: "Sansation", sans-serif;
 }
 
+body.HideOverflow {
+  overflow: hidden !important;
+}
+
 :host {
   display: block;
   height: 100%;

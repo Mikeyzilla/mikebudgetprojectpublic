@@ -25,4 +25,29 @@ export class NavigationBar {
     return isLoggedIn;
   }
 
+  logOutUser(): void {
+     this.userSessionService.wipeUserId();
+     this.router.navigateByUrl('/');
+  }
+  
+  changeSloganStyle() {
+    if (this.checkIfLoggedIn()) {
+      return {};
+    } else {
+      const routeWeAreAt = this.currentRoute;
+      if (routeWeAreAt === '/makeBudget') {
+        return {
+          marginRight: '-135px',
+        };
+      } else if (routeWeAreAt === '/home') {
+        return {
+          marginRight: '-50px',
+        }
+      } else {
+        return {
+          marginRight: '-30px'
+        };
+      }
+    }
+  }
 }

@@ -1,15 +1,11 @@
 Known Issues: 
 
-A) Style export budget. 
+A) Separate CSS concerns - Angular supports multi-css files impacting a single HTML file.
 
-B) Separate CSS concerns - Angular supports multi-css files impacting a single HTML file.
+B) Right now we only did the ideal based on salary - however we need to add in state and dependents as factors as well.
 
-C) See if there's a way to, where if the user is not logged in and both buttons are visible, change the CSS of the Nav Bar Slogan.
+C) Test login, submit budget, export budget, and logout to make sure it works in reality (use the server alongside the frontend).
 
-D) Add a logout button to the nav bar if and only if logged in.
+D) Then re enable security by deleting that security config file.
 
-E) Test login, submit budget, and export budget to make sure it works in reality (use the server alongside the frontend).
-
-F) Then re enable security by deleting that security config file.
-
-G) Add in view budget and export to pdf implementation later on. 
+E) Add in view budget and export to pdf implementation later on. 

@@ -20,18 +20,12 @@ import { isPlatformBrowser } from '@angular/common';
 })
 
 export class ExportBudget {
-  private platformId = inject(PLATFORM_ID);
-  isBrowser = false;
-
   constructor(
-    private userSessionService: UserSessionService, 
-    private budgetSessionService: BudgetSessionService
-  ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
+    private userSessionService: UserSessionService, private budgetSessionService: BudgetSessionService) {}
   private budgetService = inject(Budgetservice);
   private categoryService = inject(Categoryservice);
   private userService = inject(UserService);
+
   categorySummaries: {
     name: string,
     ideal: number,
@@ -124,9 +118,7 @@ export class ExportBudget {
   }
 
  
-  get idealChartData(): ChartData<'pie', number[], string> | undefined {
-    if (!this.isBrowser) return undefined;
-
+  get idealChartData(): ChartData<'pie', number[], string> {
     return {
       labels: this.categorySummaries.map(summary => summary.name),
       datasets: [
@@ -138,9 +130,7 @@ export class ExportBudget {
     };
   }
 
-  get actualChartData(): ChartData<'pie', number[], string> | undefined {
-    if (!this.isBrowser) return undefined;
-
+  get actualChartData(): ChartData<'pie', number[], string> {
     return {
       labels: this.categorySummaries.map(summary => summary.name),
       datasets: [

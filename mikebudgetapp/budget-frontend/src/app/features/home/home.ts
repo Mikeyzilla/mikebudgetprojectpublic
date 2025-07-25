@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DOCUMENT, Inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,10 +9,18 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./home.scss']
 })
 export class Home {
-  constructor(private router: Router) {}
+  constructor(private router: Router,  @Inject(DOCUMENT) private document: Document) {}
 
   goToMakeBudget(): void {
     this.router.navigate(['/makeBudget']);
+  }
+
+  ngOnInit() {
+    this.document.body.classList.add('HideOverflow');
+  }
+  
+  ngOnDestroy() {
+    this.document.body.classList.remove('HideOverflow')
   }
   
 }

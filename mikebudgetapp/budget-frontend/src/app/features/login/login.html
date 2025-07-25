@@ -2,9 +2,9 @@
     <h1>Access your Financial Future!</h1>
     <p class="LoginDescriptor">Login now and continue on your financial journey today!</p>
     <form class="LoginArea" (submit)="onSubmit($event)">
-        <input type="text" placeholder="Your username goes here" class="Field" [(ngModel)]="userToLogin.username">
+        <input type="text" placeholder="Your username goes here" name="username" class="Field" [(ngModel)]="userToLogin.username">
         <div class="Gap"></div>
-        <input type="password" placeholder="And your password here" class="Field" [(ngModel)]="userToLogin.password">
+        <input type="password" placeholder="And your password here" class="Field" name="password" [(ngModel)]="userToLogin.password">
         <div class="Gap"></div>
         <input type="submit" class="VerifyInfo">
     </form>

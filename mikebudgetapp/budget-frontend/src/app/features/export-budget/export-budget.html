@@ -6,16 +6,23 @@
             <label>Ideal Spending Total: {{ summary.ideal}}</label><br>
             <label>Percent Off From Ideal: {{ summary.percentDiff }}</label>
       </div>
-      <h2>Ideal Spending</h2>
-      <canvas *ngIf="isBrowser" baseChart 
-            [data]="idealChartData"
-            [type]="'pie'">
-      </canvas>
-
-      <h2>Actual Spending</h2>
-      <canvas *ngIf="isBrowser" baseChart 
-            [data]="actualChartData"
-            [type]="'pie'">
-      </canvas>
-
+      <div class="PieArea">
+            <div class="IndividualPie">
+                  <h2>Ideal Spending</h2>
+                  <canvas *ngIf="isBrowser" baseChart 
+                        class="IdealPie"
+                        [data]="idealChartData"
+                        [type]="'pie'">
+                  </canvas>   
+            </div>
+            <div class="Gap"></div>
+            <div class="IndividualPie">
+                  <h2>Actual Spending</h2>
+                  <canvas *ngIf="isBrowser" baseChart 
+                        class="ActualPie"
+                        [data]="actualChartData"
+                        [type]="'pie'">
+                  </canvas>
+            </div>
+      </div>
 </main>

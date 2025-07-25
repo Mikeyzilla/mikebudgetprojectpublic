@@ -17,7 +17,7 @@ Understand Angular component structure and routing
 Work with Oracle DB at a basic but functional level
 
 🛠️ Current Status
-This is a work in progress. The backend is mostly functional, and the frontend is partially built. I’ve documented known gaps in KnownIssues.md.
+This is a work in progress. The backend is built, but none of the routes that are used on the frontend are tested besides sign up. I’ve documented known issues in KnownIssues.md.
 
 ⚠️ Important Notes for Running the Project
 The backend bypasses CORS via Spring Security config. This was necessary for local development due to unresolved CORS errors. If you want to run the app:
