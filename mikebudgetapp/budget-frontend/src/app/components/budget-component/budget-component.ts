@@ -6,6 +6,7 @@ import { Category } from '../../shared/models/category';
 import { randomFill } from 'node:crypto';
 import { FormsModule } from '@angular/forms';
 import { UserSessionService } from '../../core/services/user-session-service';
+import { BudgetSessionService } from '../../core/services/budget-session-service';
 
 @Component({
   selector: 'app-budget-component',
@@ -15,7 +16,7 @@ import { UserSessionService } from '../../core/services/user-session-service';
   styleUrl: './budget-component.scss'
 })
 export class BudgetComponent {
-  constructor(private budgetService: Budgetservice, private userSessionService: UserSessionService) {}
+  constructor(private budgetService: Budgetservice, private userSessionService: UserSessionService, private budgetSessionService: BudgetSessionService) {}
 
   categories = ["Food", "Rent", "Phone", "Car", "Health", "Fun"];
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -161,7 +162,7 @@ export class BudgetComponent {
             const locationArray = locationUrl.split('/');
             const budgetIdString = locationArray[locationArray.length - 1];
             const budgetIdNumber = parseInt(budgetIdString);
-            //save the budgetIdNumber using the budget service session.
+            this.budgetSessionService.setOurBudgetId(budgetIdNumber);
         }
       }, error: err => console.error('Budget creation failed: ', err)
     });
@@ -169,8 +170,8 @@ export class BudgetComponent {
   
     
   getAmountFor(categoryName: string, month: string, week: string): string {
-    const val = this.amounts[month]?.[week]?.[categoryName];
-    return val != null ? val.toString() : '';
+    const amount = this.amounts[month]?.[week]?.[categoryName];
+    return amount != null ? amount.toString() : '';
   }
 
 
