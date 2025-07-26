@@ -1,5 +1,6 @@
 import { Component, DOCUMENT, Inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { UserSessionService } from '../../core/services/user-session-service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./home.scss']
 })
 export class Home {
-  constructor(private router: Router,  @Inject(DOCUMENT) private document: Document) {}
+  constructor(private router: Router,  @Inject(DOCUMENT) private document: Document, private userSessionService: UserSessionService) {}
 
   goToMakeBudget(): void {
     this.router.navigate(['/makeBudget']);

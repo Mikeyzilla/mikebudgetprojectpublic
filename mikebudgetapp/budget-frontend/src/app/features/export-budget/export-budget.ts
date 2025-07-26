@@ -40,6 +40,7 @@ export class ExportBudget {
 
   ngOnInit(): void {
       this.giveNameOfUser();
+      console.log("Before view and process")
       this.viewAndProcessBudget();
      // this.exportToPDF();
     }
@@ -61,6 +62,7 @@ export class ExportBudget {
     this.budgetSessionService.getOurBudgetId()
   ).subscribe({
     next: (budget) => {
+      console.log("Budget success in view and process!")
       this.storedBudget = budget;
       this.salary = budget.totalIncome;
       const actualMap = this.calculateActual(); 

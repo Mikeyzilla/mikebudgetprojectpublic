@@ -67,10 +67,16 @@ import { UserService } from '../../core/services/userservice';
 
   submitOurBudget() {
     this.budgetComponent.submitBudget(this.userSessionService.getOurUserId());
+    console.log("Success?")
+    
   }
 
   isLoggedIn(): boolean {
     return this.userSessionService.getOurUserId() !== 0 && this.userSessionService.getOurUserId() != null;
+  }
+
+  ngOnInit() {
+    console.log(this.userSessionService.getOurUserId())
   }
 
 }

@@ -7,6 +7,7 @@ import { randomFill } from 'node:crypto';
 import { FormsModule } from '@angular/forms';
 import { UserSessionService } from '../../core/services/user-session-service';
 import { BudgetSessionService } from '../../core/services/budget-session-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-budget-component',
@@ -16,7 +17,7 @@ import { BudgetSessionService } from '../../core/services/budget-session-service
   styleUrl: './budget-component.scss'
 })
 export class BudgetComponent {
-  constructor(private budgetService: Budgetservice, private userSessionService: UserSessionService, private budgetSessionService: BudgetSessionService) {}
+  constructor(private router: Router, private budgetService: Budgetservice, private userSessionService: UserSessionService, private budgetSessionService: BudgetSessionService) {}
 
   categories = ["Food", "Rent", "Phone", "Car", "Health", "Fun"];
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -157,6 +158,7 @@ export class BudgetComponent {
 
     this.budgetService.createUserBudget(aUserId, budget).subscribe({
       next: (budget) => {
+        console.log("budget submitted successfully")
         const locationUrl = budget.headers.get('Location');
         if (locationUrl != null) {
             const locationArray = locationUrl.split('/');
@@ -164,6 +166,8 @@ export class BudgetComponent {
             const budgetIdNumber = parseInt(budgetIdString);
             this.budgetSessionService.setOurBudgetId(budgetIdNumber);
         }
+        console.log("budget has a budget id");
+        this.router.navigate(['/sendBudget']);
       }, error: err => console.error('Budget creation failed: ', err)
     });
   }
