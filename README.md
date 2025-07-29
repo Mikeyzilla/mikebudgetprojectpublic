@@ -4,7 +4,7 @@
 
 📺 YouTube tutorials — to gain a foundational understanding
 
-🤖 AI assistance (like ChatGPT) — to clarify concepts and debug edge cases
+🤖 AI assistance - I did have help coming up with some of the syntax for this app using AI, but the idea is my own and when I did use AI, it was for help with the syntax - afterwards, I tested it to make sure it worked, rewrote the code to build muscle memory, and worked to fully understand what was going on.
 
 Through this process of guided learning + experimentation, I can now:
 
@@ -27,8 +27,6 @@ You will need to set up an Oracle DB instance locally. (Oracle DB is required bu
 You will also need to include an application.properties and ojdbc11.jar - I deleted mine from the repo for security reasons.
 
 🧩 Future Enhancements Planned features (see KnownIssues.md):
-
-User input for: location, dependents, income, and occupation
 
 Frontend login and authentication
 
